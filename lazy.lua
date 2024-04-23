@@ -2,7 +2,6 @@
 Boostrap for Lazy plugin manager
 ]]--
 
-
 if vim.fn.has('nvim-0.8') then
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
     if not vim.loop.fs_stat(lazypath) then
@@ -17,3 +16,9 @@ if vim.fn.has('nvim-0.8') then
     end
     vim.opt.rtp:prepend(lazypath)
 end
+
+require("lazy").setup({ { import = "nvim_config.plugins" },
+                        { import = "nvim_config.plugins.colourschemes" },
+                        { import = "nvim_config.plugins.lsp" },
+                        { import = "nvim_config.plugins.dap" },
+})
